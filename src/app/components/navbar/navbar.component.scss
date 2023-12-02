@@ -1,0 +1,20 @@
+.container {
+    border-bottom: 1px solid rgb(171, 166, 166);
+    width: 90%;
+    margin: auto;
+}
+
+.nav-button {
+    padding: 10px;
+}
+
+.nav {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+// .img-nav {
+//     width: 1%;
+//     overflow: hidden;
+// }

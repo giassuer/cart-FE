@@ -1,0 +1,16 @@
+<div class="container">
+
+  <ul class="nav">
+    <li *ngFor="let item of navbar">
+      <div *ngIf="item.type == 'btn'" class="nav-button">
+        <button mat-raised-button color="primary" (click)="navTo(item.path)">{{item.label}}</button>
+      </div>
+      <div *ngIf="item.type == 'icon'" class="example-button-container nav-button">
+        <button mat-fab color="warn" (click)="navTo(item.path)">
+          <mat-icon>{{item.label}}</mat-icon>
+        </button>
+      </div>
+    </li>
+  </ul>
+
+</div>
