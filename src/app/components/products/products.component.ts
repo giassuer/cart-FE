@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-products',
@@ -7,16 +9,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  products = 
-  [
-    {name: 'Prodotto 1', id:1},
-    {name: 'Prodotto 2', id:2},
-    {name: 'Prodotto 3', id:3}
-  ];
+  products: any[] = [];
+  count: any
 
-  constructor() { }
+  productParams = {
+    pagination: {
+        index: 0,
+        size: 12
+    }
+  }
+
+  constructor
+  (
+    private productService: ProductService
+  ) 
+  { }
 
   ngOnInit() {
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.productService.getProducts(this.productParams).subscribe(r => {
+      this.products = r.products
+      this.count = r.count
+    })
+  }
+
+  onPageChange(event: PageEvent): void {
+    const pageIndex = event.pageIndex;
+    this.productParams.pagination.index = pageIndex;
+    this.getProducts()
   }
 
 }

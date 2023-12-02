@@ -10,7 +10,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { ProductsComponent } from './components/products/products.component';
+import { HttpClientModule } from '@angular/common/http';
+// import { ProductService } from './services/product.service';
 
 
 @NgModule({
@@ -18,7 +21,8 @@ import { ProductsComponent } from './components/products/products.component';
     AppComponent,
     NavbarComponent,
     CartComponent,
-    ProductsComponent
+    ProductsComponent,
+    // ProductService
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,9 @@ import { ProductsComponent } from './components/products/products.component';
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatPaginatorModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

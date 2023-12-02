@@ -1,5 +1,25 @@
 <div class="products-container">
-  <div class="cards" *ngFor="let prod of products">
-    <mat-card class="card-content">{{prod.name}}</mat-card>
+  <div class="row">
+    <div class="cards col-md-3" *ngFor="let prod of products; let i = index">
+
+      <mat-card class="card-content">
+        <span class="prod-name"><strong>{{prod.name}}</strong></span>
+        <p>{{prod.description}}</p>
+        <div>
+          <span>{{prod.price}} €</span>
+          <button mat-raised-button color="primary">
+            Acquista
+          </button>
+        </div>
+
+      </mat-card>
+
+    </div>
   </div>
+  <div class="pagination">
+    <mat-paginator [length]="count" [pageSize]="productParams.pagination.size" aria-label="Select page"
+      (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+
 </div>

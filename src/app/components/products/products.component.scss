@@ -5,5 +5,21 @@
 
     .card-content {
         padding: 3%;
+        margin: 3%;
+
+        .prod-name {
+            margin-bottom: 10px;
+        }
+
+        p {
+            opacity: .6;
+            padding-bottom: 20px;
+        }
+
+        div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
 }
