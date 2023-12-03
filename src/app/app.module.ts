@@ -10,6 +10,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import {MatBadgeModule} from '@angular/material/badge';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { ProductsComponent } from './components/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatCardModule,
     MatPaginatorModule,
+    MatBadgeModule,
     HttpClientModule
   ],
   providers: [],

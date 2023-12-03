@@ -1,0 +1,20 @@
+.cart-container {
+    width: 70%;
+    margin: auto;
+    padding-top: 30px;
+
+    .card-content {
+        padding: 2%;
+        margin: 1%;
+
+        .prod-name {
+            margin-bottom: 10px;
+        }
+
+        div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}

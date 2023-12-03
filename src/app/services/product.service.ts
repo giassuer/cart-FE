@@ -20,4 +20,13 @@ getProducts(pagination: any): Observable<any> {
       `${API_URL}/products`, pagination);
 }
 
+/**
+     * aggiunge un prodotto al carrello
+     * @param product prodotto
+     */
+addProductToCart(product: any): Observable<any> {
+  return this.http.post<any>(
+      `${API_URL}/cart`, product);
+}
+
 }

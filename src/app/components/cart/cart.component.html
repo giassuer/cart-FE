@@ -1,3 +1,17 @@
-<p>
-  cart works!
-</p>
+<div class="cart-container">
+  <div class="row">
+    <div class="col-12" *ngFor="let prod of cartItems; let i = index">
+      <mat-card class="card-content">
+        <div>
+          <span class="prod-name"><strong>{{prod.name}}</strong></span>
+          <span>{{prod.price}} €</span>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-12">
+      <mat-card class="card-content">
+        <span>{{total}} €</span>
+      </mat-card>
+    </div>
+  </div>
+</div>

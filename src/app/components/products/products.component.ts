@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ProductService } from 'src/app/services/product.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -11,6 +12,7 @@ export class ProductsComponent implements OnInit {
 
   products: any[] = [];
   count: any
+  cartCount: any;
 
   productParams = {
     pagination: {
@@ -21,12 +23,14 @@ export class ProductsComponent implements OnInit {
 
   constructor
   (
-    private productService: ProductService
+    private productService: ProductService,
+    private cartService: CartService
   ) 
   { }
 
   ngOnInit() {
     this.getProducts();
+    this.getProductsFromCart()
   }
 
   getProducts() {
@@ -40,6 +44,33 @@ export class ProductsComponent implements OnInit {
     const pageIndex = event.pageIndex;
     this.productParams.pagination.index = pageIndex;
     this.getProducts()
+  }
+
+  addToCart(product: any) {
+    console.log(product);
+    let prod = 
+    {
+      name: product.name,
+      description: product.description,
+      price: product.price
+    }
+    
+    this.productService.addProductToCart(prod).subscribe(r => {
+      this.getProductsFromCart()
+    })
+  }
+
+  getProductsFromCart() {
+    this.cartService.getProductsFromCart().subscribe(r => {
+      console.log(r);
+      this.cartCount = r.count;
+      this.sendMessage();
+      
+    })
+  }
+
+  sendMessage() {
+    this.cartService.sendCount(this.cartCount);
   }
 
 }
