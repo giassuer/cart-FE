@@ -32,8 +32,30 @@
   <div *ngIf="showPaymentArea" class="payment-container">
     <h3>Seleziona metodo di pagamento</h3>
     <mat-tab-group>
-      <mat-tab label="Carta di credito"> Carta di credito </mat-tab>
-      <mat-tab label="Paga alla consegna"> Paga alla consegna </mat-tab>
+      <mat-tab label="Carta di credito">
+        <div class="form-card">
+          <span>Nessun costo aggiuntivo {{total}} €</span>
+          <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+            <label for="cardNumber">Numero della carta:</label>
+            <input id="cardNumber" type="text" formControlName="cardNumber" placeholder="1234 5678 9012 3456"
+              maxlength="16">
+
+            <div>
+              <label for="cvc">CVC:</label>
+              <input id="cvc" type="text" formControlName="cvc" placeholder="CVC" maxlength="3">
+            </div>
+
+            <button mat-raised-button color="primary">
+              Paga
+            </button>
+          </form>
+        </div>
+      </mat-tab>
+      <mat-tab label="Paga alla consegna">
+        <div class="delivery-container">
+          <span>Totale + consegna {{total + 10}} €</span>
+        </div>
+      </mat-tab>
     </mat-tab-group>
   </div>
 

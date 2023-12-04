@@ -29,6 +29,47 @@
     }
 
     .payment-container {
-        margin-top: 60px;
+        padding-top: 60px;
+        padding-bottom: 60px;
+
+        .form-card {
+            padding-top: 30px;
+            padding-bottom: 30px;
+
+            form {
+                max-width: 400px;
+                margin: auto;
+            }
+
+            span {
+                margin-bottom: 60px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            input {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+            }
+
+            button {
+                padding: 10px;
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+        }
+
+
+    }
+
+    .delivery-container {
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
 }

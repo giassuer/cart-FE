@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -13,8 +14,15 @@ export class CartComponent implements OnInit {
   total: any;
   savedTotal = Number(localStorage.getItem('total'));
   showPaymentArea = false;
+  paymentForm: FormGroup;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private fb: FormBuilder)
+   {
+    this.paymentForm = this.fb.group({
+      cardNumber: ['', [Validators.required, Validators.pattern(/^\d{16}$/)]],
+      cvc: ['', [Validators.required, Validators.pattern(/^\d{3}$/)]],
+    });
+   }
 
   ngOnInit() {
     
@@ -69,6 +77,11 @@ export class CartComponent implements OnInit {
 
   showPayment() {
     this.showPaymentArea = true
+  }
+
+  onSubmit() {
+    // Implementa qui la logica per gestire l'invio del pagamento
+    console.log('Form inviato:', this.paymentForm.value);
   }
 
 }
