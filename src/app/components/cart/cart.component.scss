@@ -1,5 +1,5 @@
 .cart-container {
-    width: 70%;
+    width: 60%;
     margin: auto;
     padding-top: 30px;
 
@@ -15,6 +15,20 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            .quantity {
+                max-width: 10%;
+            }
         }
+    }
+
+    .cart-total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .payment-container {
+        margin-top: 60px;
     }
 }

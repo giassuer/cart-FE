@@ -34,14 +34,9 @@ export class NavbarComponent implements OnInit {
   }
 
   getCartCount() {
-    // this.cartService.currentCartCount.subscribe((count) => {
-    //   this.count = count;
-    //   console.log('count', this.count);
-      
-    // });
+
     this.cartService.data$.subscribe((data) => {
       this.count = data;
-      console.log('count', this.count);
     });
   }
 

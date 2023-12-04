@@ -4,14 +4,37 @@
       <mat-card class="card-content">
         <div>
           <span class="prod-name"><strong>{{prod.name}}</strong></span>
+
           <span>{{prod.price}} €</span>
+          <span class="quantity">
+            <input type="number" id="typeNumber" class="form-control" [value]="prod.quantity" min="1"
+              (input)="changeQuantity($event, prod)" />
+
+          </span>
         </div>
       </mat-card>
     </div>
     <div class="col-12">
       <mat-card class="card-content">
-        <span>{{total}} €</span>
+        <!-- <label class="form-label" for="typeNumber">Totale</label> -->
+        <div class="cart-total">
+          <span>{{total}} €</span>
+          <span>
+            <button mat-raised-button color="primary" (click)="showPayment()">
+              Vai al pagamento
+            </button>
+          </span>
+        </div>
       </mat-card>
     </div>
   </div>
+
+  <div *ngIf="showPaymentArea" class="payment-container">
+    <h3>Seleziona metodo di pagamento</h3>
+    <mat-tab-group>
+      <mat-tab label="Carta di credito"> Carta di credito </mat-tab>
+      <mat-tab label="Paga alla consegna"> Paga alla consegna </mat-tab>
+    </mat-tab-group>
+  </div>
+
 </div>

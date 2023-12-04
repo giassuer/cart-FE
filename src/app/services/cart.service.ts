@@ -28,5 +28,9 @@ getProductsFromCart(): Observable<any> {
       `${API_URL}/cart`);
 }
 
+editProductQuantity(productId: any, action: any): Observable<any> {
+  return this.http.put<any>(
+      `${API_URL}/cart/${productId}`, action);
+}
 
 }

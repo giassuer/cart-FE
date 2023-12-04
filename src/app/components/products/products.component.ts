@@ -47,12 +47,12 @@ export class ProductsComponent implements OnInit {
   }
 
   addToCart(product: any) {
-    console.log(product);
     let prod = 
     {
       name: product.name,
       description: product.description,
-      price: product.price
+      price: product.price,
+      quantity: 1
     }
     
     this.productService.addProductToCart(prod).subscribe(r => {
@@ -62,7 +62,6 @@ export class ProductsComponent implements OnInit {
 
   getProductsFromCart() {
     this.cartService.getProductsFromCart().subscribe(r => {
-      console.log(r);
       this.cartCount = r.count;
       this.sendMessage();
       

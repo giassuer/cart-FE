@@ -12,6 +12,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatInputModule} from '@angular/material/input';
 import { ProductsComponent } from './components/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 // import { ProductService } from './services/product.service';
@@ -34,7 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatCardModule,
     MatPaginatorModule,
+    MatTabsModule,
     MatBadgeModule,
+    MatInputModule,
     HttpClientModule
   ],
   providers: [],
