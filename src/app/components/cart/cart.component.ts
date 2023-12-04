@@ -26,6 +26,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     
+    this.saveDataToLocalStorage('total', 0);
     this.getProductsFromCart()
     this.calculateTotal();
   }
@@ -35,7 +36,9 @@ export class CartComponent implements OnInit {
       this.count = r.count;
       this.cartItems = r.products
       this.sendMessage();
-
+      if (this.total == 0) {
+        this.calculateTotal();
+      }
     })
   }
 
@@ -44,7 +47,8 @@ export class CartComponent implements OnInit {
   }
 
   calculateTotal(): any  {
-    if (!this.savedTotal) {
+    if (this.savedTotal == 0) {
+      this.total = 0;
       this.total = this.cartItems.reduce((total: any , product: any ) => total + Number(product.price), 0);
     }else {
       this.total = Number(this.savedTotal);
@@ -80,8 +84,8 @@ export class CartComponent implements OnInit {
   }
 
   onSubmit() {
-    // Implementa qui la logica per gestire l'invio del pagamento
-    console.log('Form inviato:', this.paymentForm.value);
+    this.saveDataToLocalStorage('total', 0);
+    this.getProductsFromCart()
   }
 
 }
